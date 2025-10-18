@@ -1,4 +1,4 @@
-import * as admin from 'firebase-admin';
+import admin from 'firebase-admin';
 import * as fs from 'fs/promises';
 import { createInterface } from 'readline/promises';
 import { resolve } from 'path';
@@ -41,13 +41,13 @@ async function uploadDataToFirebase() {
         nestedKey: NESTED_ARRAY_KEY
     } = configurationResult;
 
-    // try {
-    //     admin.initializeApp();
-    //     console.log('\nFirebase Admin Initialized successfully.');
-    // } catch (error) {
-    //     console.error('ERROR: Failed to initialize Firebase Admin (Check GOOGLE_APPLICATION_CREDENTIALS):', error.message);
-    //     process.exit(1);
-    // }
+    try {
+        admin.initializeApp();
+        console.log('\nFirebase Admin Initialized successfully.');
+    } catch (error) {
+        console.error('ERROR: Failed to initialize Firebase Admin (Check GOOGLE_APPLICATION_CREDENTIALS):', error.message);
+        process.exit(1);
+    }
 }
 
 uploadDataToFirebase().catch(error => {
