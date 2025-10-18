@@ -1,5 +1,5 @@
 import admin from 'firebase-admin';
-import * as fs from 'fs/promises';
+import * as filesystem from 'fs/promises';
 import { createInterface } from 'readline/promises';
 import { resolve } from 'path';
 
@@ -9,7 +9,7 @@ async function promptConfigurationInputs() {
         output: process.stdout
     });
 
-    console.log('To begin data import, please provide the following data values required for setup...');
+    console.log('\nTo begin data import, please provide the following data values required for setup...');
 
     const filePath = await readLine.question('Enter the path to the JSON data file: ');
 
@@ -48,6 +48,13 @@ async function uploadDataToFirebase() {
         console.error('ERROR: Failed to initialize Firebase Admin (Check GOOGLE_APPLICATION_CREDENTIALS):', error.message);
         process.exit(1);
     }
+
+    const database = admin.firestore();
+    console.log('Firestore Initialized successfully.');
+    console.log(`\nStarting data upload from ${DATA_FILE_PATH} to:\n  - Parent Collection: ${PARENT_COLLECTION}\n  - Nested Collection: ${NESTED_COLLECTION}`);
+    console.log(`Using keys: Parent ID='${PARENT_NAME_KEY}', Nested Array='${NESTED_ARRAY_KEY}'`);
+
+    let parentDataArray;
 }
 
 uploadDataToFirebase().catch(error => {
