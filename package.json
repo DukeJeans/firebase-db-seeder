@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/DukeJeans/firebase-db-seeder/issues"
   },
-  "homepage": "https://github.com/DukeJeans/firebase-db-seeder#readme"
+  "homepage": "https://github.com/DukeJeans/firebase-db-seeder#readme",
+  "dependencies": {
+    "firebase-admin": "^13.5.0"
+  }
 }
