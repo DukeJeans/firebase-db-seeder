@@ -1,3 +1,7 @@
+## Purpose of Application
+
+Import vehicle makes and models into Firestore collections, provided from https://github.com/Savage3D/car-makes-models-data/blob/master/car-makes.json.
+
 ## Required Manual Setup
 
 1. Upload a file into the root directory called `firebase-config.json` that looks like the following. You can export this from your Firebase project.
