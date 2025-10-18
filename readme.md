@@ -4,21 +4,7 @@ Import vehicle makes and models into Firestore collections, provided from https:
 
 ## Required Manual Setup
 
-1. Upload a file into the root directory called `firebase-config.json` that looks like the following. You can export this from your Firebase project.
-
-    ```javascript
-    const firebaseConfig = {
-      apiKey: "AIzaSyB_123abcDEF-gHIjKLmNOpQR_stuVwXYz", // ⚠️ Dummy key
-      authDomain: "your-project-id.firebaseapp.com",
-      projectId: "your-project-id",
-      storageBucket: "your-project-id.appspot.com",
-      messagingSenderId: "123456789012",
-      appId: "1:123456789012:web:a1b2c3d4e5f67890",
-      measurementId: "G-A1B2C3D4E5"
-    };
-    ```
-
-2. Upload anAdmin SDK key file into the root directory called `adminsdk-key.json` from the same Firebase project through your service account UI.
+1. Upload an Admin SDK key file into the root directory called `adminsdk-key.json` from the same Firebase project through your service account UI.
 
     ```json
     {
