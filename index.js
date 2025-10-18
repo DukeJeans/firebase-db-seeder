@@ -29,3 +29,35 @@ async function promptConfigurationInputs() {
         nestedKey: nestedArrayKey.trim() || 'models'
     };
 }
+
+async function uploadDataToFirebase() {
+    const configurationResult = await promptConfigurationInputs();
+
+    const { 
+        filePath: DATA_FILE_PATH,
+        parentCollection: PARENT_COLLECTION, 
+        nestedCollection: NESTED_COLLECTION,
+        parentKey: PARENT_NAME_KEY,
+        nestedKey: NESTED_ARRAY_KEY
+    } = config;
+
+    // try {
+    //     admin.initializeApp();
+    //     console.log('\nFirebase Admin Initialized successfully.');
+    // } catch (error) {
+    //     console.error('ERROR: Failed to initialize Firebase Admin (Check GOOGLE_APPLICATION_CREDENTIALS):', error.message);
+    //     process.exit(1);
+    // }
+}
+
+promptConfigurationInputs().catch(error => {
+    if (!error.message.includes("ERROR:")) {
+         console.error("\nAn unexpected error occurred during execution:", error);
+    }
+});
+
+uploadDataToFirebase().catch(error => {
+    if (!error.message.includes("ERROR:")) {
+         console.error("\nAn unexpected error occurred during execution:", error);
+    }
+});
