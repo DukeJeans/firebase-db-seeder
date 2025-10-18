@@ -14,7 +14,7 @@
     };
     ```
 
-2. Upload an Admin SDK key from the same Firebase project through your service account UI.
+2. Upload anAdmin SDK key file into the root directory called `adminsdk-key.json` from the same Firebase project through your service account UI.
 
     ```json
     {
