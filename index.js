@@ -9,15 +9,15 @@ async function promptConfigurationInputs() {
         output: process.stdout
     });
 
-    console.log('To begin data import, please provide the following data values required for setup...\n');
+    console.log('To begin data import, please provide the following data values required for setup...');
 
     const filePath = await readLine.question('Enter the path to the JSON data file: ');
 
-    const parentCollectionName = await rl.question('Enter collection name for **Parent Data** (e.g., users, vehicle_makes): ');
-    const nestedCollectionName = await rl.question('Enter collection name for **Nested Data** (e.g., orders, vehicle_models): ');
+    const parentCollectionName = await readLine.question('Enter collection name for **Parent Data** (e.g., users, vehicle_makes): ');
+    const nestedCollectionName = await readLine.question('Enter collection name for **Nested Data** (e.g., orders, vehicle_models): ');
 
-    const parentNameKey = await rl.question('Enter the **key** for the Parent Item\'s Name/ID (e.g., name, sku): ');
-    const nestedArrayKey = await rl.question('Enter the **key** for the Nested Array (e.g., models, items): ');
+    const parentNameKey = await readLine.question('Enter the **key** for the Parent Item\'s Name/ID (e.g., name, sku): ');
+    const nestedArrayKey = await readLine.question('Enter the **key** for the Nested Array (e.g., models, items): ');
     
     readLine.close();
 
@@ -39,7 +39,7 @@ async function uploadDataToFirebase() {
         nestedCollection: NESTED_COLLECTION,
         parentKey: PARENT_NAME_KEY,
         nestedKey: NESTED_ARRAY_KEY
-    } = config;
+    } = configurationResult;
 
     // try {
     //     admin.initializeApp();
@@ -50,14 +50,9 @@ async function uploadDataToFirebase() {
     // }
 }
 
-promptConfigurationInputs().catch(error => {
-    if (!error.message.includes("ERROR:")) {
-         console.error("\nAn unexpected error occurred during execution:", error);
-    }
-});
-
 uploadDataToFirebase().catch(error => {
     if (!error.message.includes("ERROR:")) {
          console.error("\nAn unexpected error occurred during execution:", error);
+         process.exit(1);
     }
 });
