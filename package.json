@@ -1,0 +1,19 @@
+{
+  "name": "fbdb-seeder",
+  "version": "1.0.0",
+  "description": "Seeds firebase datastore from a JSON file",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DukeJeans/firebase-db-seeder.git"
+  },
+  "author": "Nicholas Jeans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DukeJeans/firebase-db-seeder/issues"
+  },
+  "homepage": "https://github.com/DukeJeans/firebase-db-seeder#readme"
+}
